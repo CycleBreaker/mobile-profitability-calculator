@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import { UserDataStorage } from "./UserDataContext";
+import withContainer from "./Container";
+import Component from "./Component";
 
-function App() {
+export default function App() {
+  const ComponentContainer = withContainer(Component);
+  const randomColor = "red";
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <UserDataStorage>
+      <ComponentContainer someColor={randomColor} />
+    </UserDataStorage>
   );
 }
-
-export default App;
